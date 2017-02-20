@@ -1,6 +1,11 @@
 <?php
 
 session_start();
+
+if (! isset($_SESSION["isFileManagerAccessAllowed"]) or ! $_SESSION["isFileManagerAccessAllowed"]) {
+	die("forbidden");
+}
+
 $_SESSION["verify"] = "FileManager4TinyMCE";
 
 if(isset($_POST['submit'])){
